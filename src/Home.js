@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addToCart } from './components/actions/cartActions';
 
 class Home extends Component{
+
+    handleClick = (id)=>{
+        this.props.addToCart(id); 
+    }
 
     render(){
         var item_HTML_TABLE = "";
@@ -12,6 +17,7 @@ class Home extends Component{
                     <td>{item.name}</td>
                     <td>{item.department}</td>
                     <td>{item.price}</td>
+                    <td><button type="button" onClick={() => this.handleClick(item.id)} className="btn btn-danger btn-sm">Lägg till</button></td>
                 </tr>
             )
         })
@@ -33,6 +39,7 @@ class Home extends Component{
                                             <th>Namn</th>
                                             <th>Avdelning</th>
                                             <th>Pris</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -55,4 +62,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Home) 
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        addToCart: (id)=>{dispatch(addToCart(id))}
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home) 
