@@ -30,9 +30,9 @@ class Home extends Component{
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Department</th>
-                                            <th>Price</th>
+                                            <th>Namn</th>
+                                            <th>Avdelning</th>
+                                            <th>Pris</th>
                                         </tr>
                                     </thead>
                                     <tbody>
